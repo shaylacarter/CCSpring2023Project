@@ -10,15 +10,17 @@ public class PlayerController : MonoBehaviour
     private float movement = 0f;
     private Rigidbody2D rigidBody;
 
-    //Used for ground checks when jumping.
+    //Used for ground checks when jumping/wall sliding.
     private float heightTestPlayer;
     private float widthTestPlayer;
     private Collider2D playerCollider;
     private int layerMaskGround;
     private int jumpCount = 0;
+    private bool wallSliding = false;
 
-    //Used for wall sliding.
-    public bool wallSliding = false;
+    //Used for tracking power-ups.
+    public bool canDoubleJump;
+    public bool canWallJump;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +47,8 @@ public class PlayerController : MonoBehaviour
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
         }
 
-        wallSliding = IsWalled();
-        if(Input.GetButtonDown("Jump") && (IsGrounded() || wallSliding || jumpCount <= 1)) {
+        wallSliding = canWallJump ? IsWalled() : false;
+        if(Input.GetButtonDown("Jump") && (IsGrounded() || wallSliding || jumpCount <= (canDoubleJump ? 1 : 0))) {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
         } else if (wallSliding) {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, Mathf.Clamp(rigidBody.velocity.y, -1.5f, float.MaxValue));

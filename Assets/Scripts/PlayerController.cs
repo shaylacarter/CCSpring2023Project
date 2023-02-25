@@ -39,10 +39,10 @@ public class PlayerController : MonoBehaviour
         movement = Input.GetAxis("Horizontal");
         if (movement > 0f) {
             rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
-            transform.localScale = new Vector3(-0.7f, 0.7f, 1);
+            transform.localScale = new Vector3(-1, 1, 1);
         } else if (movement < 0f) {
             rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
-            transform.localScale = new Vector3(0.7f, 0.7f, 1);
+            transform.localScale = new Vector3(1, 1, 1);
         } else {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
         }

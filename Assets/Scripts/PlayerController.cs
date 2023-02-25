@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
         playerCollider = GetComponent<Collider2D>();
         heightTestPlayer = playerCollider.bounds.extents.y + 0.05f;
-        widthTestPlayer = playerCollider.bounds.extents.x + 0.75f;
+        widthTestPlayer = playerCollider.bounds.extents.x + 0.1f;
         layerMaskGround = LayerMask.GetMask("Ground");
     }
 

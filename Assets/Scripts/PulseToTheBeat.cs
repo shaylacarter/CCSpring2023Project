@@ -10,6 +10,11 @@ public class PulseToTheBeat : MonoBehaviour
     [SerializeField] float _returnSpeed = 5f;
     private Vector3 _startSize;
 
+    [SerializeField] private AudioClip[] _soundEffects;
+    [SerializeField] private AudioSource _audioSource;
+    private int _currentSoundEffect;
+    public float volume = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,11 @@ public class PulseToTheBeat : MonoBehaviour
 
     public void Pulse(){
         transform.localScale = _startSize * _pulseSize;
+        
+        if (_soundEffects.Length > 0) {
+            _audioSource.PlayOneShot(_soundEffects[_currentSoundEffect], volume);
+            _currentSoundEffect = (_currentSoundEffect + 1) % _soundEffects.Length;
+        }
     }
 
     IEnumerator TestBeat() {

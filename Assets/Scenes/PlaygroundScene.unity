@@ -855,7 +855,7 @@ MonoBehaviour:
   _bpm: 120
   _audioSource: {fileID: 506361251}
   _intervals:
-  - _steps: 1
+  - _steps: 0.5
     _trigger:
       m_PersistentCalls:
         m_Calls:
@@ -881,9 +881,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0c45b8e9c43cfc04481cdc5a95ca420c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3972c1fbaa228ec40ba321f489d8b36d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2578,8 +2578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.0013056, y: -0.0049181}
+  m_SizeDelta: {x: 107.64, y: 108.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344487163
 MonoBehaviour:

@@ -30,8 +30,9 @@ public class PlayerController : MonoBehaviour
     public bool wallSliding = false;
 
     //Used for displaying an effect when attacking.
-    public GameObject attackParticle; 
-    public GameObject attackParticleFlipped; 
+    public GameObject attackParticle;
+    public GameObject attackParticleFlipped;
+    public GameObject attackSprite; 
 
     // Start is called before the first frame update
     void Start()
@@ -121,16 +122,13 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator AttackTarget(){ 
         
-        GameObject attackEffect;
-
-        if (transform.localScale.x < 0) {
-            attackEffect = (GameObject)GameObject.Instantiate(attackParticleFlipped);
-        } else {
-            attackEffect = (GameObject)GameObject.Instantiate(attackParticle);
-        }
+        GameObject attackEffect = (GameObject)GameObject.Instantiate(attackSprite);
+        attackEffect.transform.parent = transform;
 
         float attackOffset = (transform.localScale.x < 0) ? 0.5f : -0.5f;
         attackEffect.transform.position = new Vector3(transform.position.x + attackOffset, transform.position.y, transform.position.z);
+
+        attackEffect.transform.localScale = new Vector3(0.3f, 0.3f, 1);
 
         yield return new WaitForSeconds(0.25f); 
         Destroy(attackEffect); 

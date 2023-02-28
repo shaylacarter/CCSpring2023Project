@@ -94,6 +94,12 @@ public class PlayerController : MonoBehaviour
             animate.SetBool("InFreeFall", true);
         }
 
+        //Now checks if the player is attacking.
+        if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("Pressed primary button.");
+            animate.SetTrigger("Attack");
+        }
+
     }
 
     private bool Grounded() {

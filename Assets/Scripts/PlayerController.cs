@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private Animator animate;
+
     public float speed = 8f;
     public float jumpSpeed = 8f;
     private float movement = 0f;
@@ -26,11 +28,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-
         playerCollider = GetComponent<Collider2D>();
         heightTestPlayer = playerCollider.bounds.extents.y + 0.05f;
         widthTestPlayer = playerCollider.bounds.extents.x + 0.1f;
         layerMaskGround = LayerMask.GetMask("Ground");
+
+        //Used for animations.
+        animate = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,11 +44,14 @@ public class PlayerController : MonoBehaviour
         if (movement > 0f) {
             rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
             transform.localScale = new Vector3(-1, 1, 1);
+            animate.SetFloat("Speed", 1);
         } else if (movement < 0f) {
             rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
             transform.localScale = new Vector3(1, 1, 1);
+            animate.SetFloat("Speed", 1);
         } else {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+            animate.SetFloat("Speed", 0);
         }
 
         wallSliding = canWallJump ? IsWalled() : false;

@@ -2230,6 +2230,8 @@ MonoBehaviour:
   inFreeFall: 0
   grounded: 0
   wallSliding: 0
+  attackParticle: {fileID: 7502933106982455046, guid: 4b1a96c111592bc4a98804fc0884ed71, type: 3}
+  attackParticleFlipped: {fileID: 1311830962382275849, guid: 0a8163a6d2ff1454aa33c8058b3cae7b, type: 3}
 --- !u!114 &1148634566
 MonoBehaviour:
   m_ObjectHideFlags: 0

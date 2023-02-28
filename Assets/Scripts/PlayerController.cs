@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     public bool grounded = false;
     public bool wallSliding = false;
 
+    //Used for displaying an effect when attacking.
+    public GameObject attackParticle; 
+    public GameObject attackParticleFlipped; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,9 +99,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //Now checks if the player is attacking.
+        //This is at the end because it waits and then destroys the attack effect.
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("Pressed primary button.");
             animate.SetTrigger("Attack");
+            StartCoroutine(AttackTarget());
         }
 
     }
@@ -112,6 +117,23 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D wallHitLeft = Physics2D.Raycast(playerCollider.bounds.center, Vector2.left, widthTestPlayer, layerMaskGround);
         RaycastHit2D wallHitRight = Physics2D.Raycast(playerCollider.bounds.center, Vector2.right, widthTestPlayer, layerMaskGround);
         return wallHitLeft.collider != null || wallHitRight.collider != null;
+    }
+
+    IEnumerator AttackTarget(){ 
+        
+        GameObject attackEffect;
+
+        if (transform.localScale.x < 0) {
+            attackEffect = (GameObject)GameObject.Instantiate(attackParticleFlipped);
+        } else {
+            attackEffect = (GameObject)GameObject.Instantiate(attackParticle);
+        }
+
+        float attackOffset = (transform.localScale.x < 0) ? 0.5f : -0.5f;
+        attackEffect.transform.position = new Vector3(transform.position.x + attackOffset, transform.position.y, transform.position.z);
+
+        yield return new WaitForSeconds(0.25f); 
+        Destroy(attackEffect); 
     }
     
 }

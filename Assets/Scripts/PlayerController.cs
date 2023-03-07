@@ -125,12 +125,12 @@ public class PlayerController : MonoBehaviour
         GameObject attackEffect = (GameObject)GameObject.Instantiate(attackSprite);
         attackEffect.transform.parent = transform;
 
-        float attackOffset = (transform.localScale.x < 0) ? 0.5f : -0.5f;
+        float attackOffset = (transform.localScale.x < 0) ? 0.6f : -0.6f;
         attackEffect.transform.position = new Vector3(transform.position.x + attackOffset, transform.position.y, transform.position.z);
 
-        attackEffect.transform.localScale = new Vector3(0.3f, 0.3f, 1);
+        attackEffect.transform.localScale = new Vector3(0.6f, 0.45f, 1);
 
-        yield return new WaitForSeconds(0.25f); 
+        yield return new WaitForSeconds(0.2f); 
         Destroy(attackEffect); 
     }
     

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Activator
   layers:
   - Default
   - TransparentFX
@@ -11,7 +12,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Environment
   - 
   - 
   - 
@@ -40,6 +41,30 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackgroundWalls
+    uniqueID: 1523987697
+    locked: 0
+  - name: Collision
+    uniqueID: 3785296989
+    locked: 0
+  - name: ForegroundAlternate2
+    uniqueID: 397024165
+    locked: 0
+  - name: ForegroundAlternate
+    uniqueID: 2503994671
+    locked: 0
+  - name: Foreground
+    uniqueID: 925634967
+    locked: 0
+  - name: Player
+    uniqueID: 2750219215
+    locked: 0
+  - name: ForegroundAbovePlayer
+    uniqueID: 2327676667
+    locked: 0
+  - name: BlurryForeground
+    uniqueID: 3301537717
     locked: 0
   - name: Particles
     uniqueID: 528140355

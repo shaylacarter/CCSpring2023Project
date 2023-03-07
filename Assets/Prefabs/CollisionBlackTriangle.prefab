@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 808464887751758844}
   - component: {fileID: 808464887751758847}
-  - component: {fileID: 808464887751758845}
+  - component: {fileID: 4866117636116164352}
   m_Layer: 3
-  m_Name: CollisionBlackBox
+  m_Name: CollisionBlackTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -509670307
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9e2ba647576a5ad44b0dd1598d9a2338, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7453f8860af36e947b1d663d008b9ebb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &808464887751758845
-BoxCollider2D:
+--- !u!60 &4866117636116164352
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,6 +108,10 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.72, y: 0.72}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.35999998, y: 0.35999998}
+      - {x: -0.35999998, y: 0.34}
+      - {x: 0.34, y: -0.35999998}
+      - {x: 0.35999998, y: -0.35999998}
+      - {x: 0.35999998, y: 0.35999998}

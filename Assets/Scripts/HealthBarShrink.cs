@@ -34,6 +34,10 @@ public class HealthBarShrink : MonoBehaviour
             float shrinkSpeed = 1f;
             damagedBarImage.fillAmount -= shrinkSpeed * Time.deltaTime;
         }
+
+        if (damagedBarImage.fillAmount < barImage.fillAmount) {
+            damagedBarImage.fillAmount = barImage.fillAmount;
+        }
     }
 
     private void HealthSystem_OnHealed(object sender, System.EventArgs e) {

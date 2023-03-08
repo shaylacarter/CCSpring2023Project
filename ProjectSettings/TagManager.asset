@@ -45,6 +45,9 @@ TagManager:
   - name: BackgroundWalls
     uniqueID: 1523987697
     locked: 0
+  - name: NearBackgroundDecor
+    uniqueID: 360508489
+    locked: 0
   - name: Collision
     uniqueID: 3785296989
     locked: 0

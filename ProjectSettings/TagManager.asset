@@ -42,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FarthestBackground
+    uniqueID: 1119085575
+    locked: 0
+  - name: FarBackground
+    uniqueID: 1488562655
+    locked: 0
+  - name: BackgroundWallsAlternate
+    uniqueID: 226151701
+    locked: 0
   - name: BackgroundWalls
     uniqueID: 1523987697
     locked: 0

@@ -28,11 +28,14 @@ public class PlayerController : MonoBehaviour
     public bool inFreeFall = false;
     public bool grounded = false;
     public bool wallSliding = false;
-
+    public bool isFacingLeft = false;
     //Used for displaying an effect when attacking.
     public GameObject attackParticle;
     public GameObject attackParticleFlipped;
-    public GameObject attackSprite; 
+    public GameObject attackSprite;
+
+    //Need to rotate the fire point when looking left
+    public GameObject firePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -56,10 +59,12 @@ public class PlayerController : MonoBehaviour
         if (movement > 0f) {
             rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
             transform.localScale = new Vector3(-1, 1, 1);
+            isFacingLeft = false;
             animate.SetFloat("Speed", 1);
         } else if (movement < 0f) {
             rigidBody.velocity = new Vector2(movement * speed, rigidBody.velocity.y);
             transform.localScale = new Vector3(1, 1, 1);
+            isFacingLeft = true;
             animate.SetFloat("Speed", 1);
         } else {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);

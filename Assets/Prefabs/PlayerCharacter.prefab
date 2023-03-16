@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1562845142725334427}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1562845142923218160
 GameObject:
   m_ObjectHideFlags: 0

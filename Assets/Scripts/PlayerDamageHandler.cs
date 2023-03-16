@@ -6,7 +6,6 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
 {
 
     public Rigidbody2D rb;
-
     PlayerController playerController;
 
     // Start is called before the first frame update
@@ -34,4 +33,5 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
     public void OnObjectDestroyed() {
 
     }
+
 }

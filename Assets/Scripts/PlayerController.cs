@@ -39,13 +39,18 @@ public class PlayerController : MonoBehaviour
     //Handles blocking the player from moving while being hurt.
     public bool isTakingDamage = false;
     
-    //Tracks the player's health.
+    //Handles player health and damage.
     public float health = 100;
     public HealthBarShrink healthBarScript;
+    public SpriteRenderer spriteRenderer;
+    Color originalColor;
+    float Flashtime = .15f;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        //Used for environment collision.
         rigidBody = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
         heightTestPlayer = playerCollider.bounds.extents.y + 0.05f;
@@ -54,6 +59,10 @@ public class PlayerController : MonoBehaviour
 
         //Used for animations.
         animate = gameObject.GetComponent<Animator>();
+
+        //Used for health and damage.
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -149,6 +158,18 @@ public class PlayerController : MonoBehaviour
         Destroy(attackEffect); 
     }
 
+    void DamageFlashStart()
+    {
+        spriteRenderer.color = Color.red;
+        Invoke("DamageFlashStop", Flashtime);
+        
+    }
+
+    void DamageFlashStop()
+    {
+        spriteRenderer.color = originalColor;
+    }
+
     public void TakeDamage(int damageAmount) {
         health -= damageAmount;
         if (health < 0) {
@@ -167,9 +188,11 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator DamageBuffer(){ 
-        
+        DamageFlashStart();
         isTakingDamage = true;
-        yield return new WaitForSeconds(0.5f); 
+        yield return new WaitForSeconds(0.25f); 
+        DamageFlashStart();
+        yield return new WaitForSeconds(0.25f); 
         isTakingDamage = false;
     }
     

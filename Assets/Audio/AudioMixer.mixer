@@ -10,7 +10,8 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 342fc0b05a9c51f4e8dc90c69f17abbf
   m_FloatValues:
-    4e3bec205a8be4a48a27ead550e072a0: 0.27000841
+    4e3bec205a8be4a48a27ead550e072a0: 7
+    3b25b25019be80f439ff5c573a798ccc: 66
     b8095f6013b1f9d4493efa0f9d605943: 0.437
     559933c08d302404b8ca43793aaeb17e: -80
     f7d8d8f0cf6eb0c499c071d296cbbc22: 0.1
@@ -22,13 +23,19 @@ AudioMixerSnapshotController:
     d924321442644354ea00bc0ef472d123: 1
     5b3782e6fd82cd74d82d6497d5b20545: 0.623
     3b024b3776731564da70d2be2a8327e8: 0.234
+    7f6680b78f2a3db439b3bfe615b82e19: 0.322
+    1fe704b7162e30e4cb84865cbcf150f7: 3
     e16216783ace82d469430e79c54fb518: 392
     71511f78cafe0284eb555408499988fa: -4121
+    dc66daa83cda0914f97f502411172de5: 0.17899999
+    5462d3b8f58b1ed43bd447104592bbc0: 300
     caf0f37972ac36143b70d2f56dc1f025: 0.5
     185c27abf740c3a479f2614513da0f04: 32
     c533311cb5092b94582f9fb4fd59fc74: -6952
+    3572ef2c002d7874c838433448c3502f: 0.135
     c656eb8c5a42a4d4e84b4c66c0b2b074: 0.73
     18fb03fd1cfa3e04ca725fb7e753db02: 22000
+    5df2994e3ed0545419cfe3e88158813c: 0.725
     aa3200dec91b25f459e5d67ec47213fc: 0.065
     6266d6ee4ee9c0549a6aabe38df6a467: 0.5
     6987986fa9e07ba4c936989161feec89: 1
@@ -72,6 +79,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: 9107800802855938016}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -100,7 +108,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 79752e5050a9c7742b833df7684f5170
   m_FloatValues:
-    4e3bec205a8be4a48a27ead550e072a0: 0.27000841
+    4e3bec205a8be4a48a27ead550e072a0: 0
     b8095f6013b1f9d4493efa0f9d605943: 0.437
     559933c08d302404b8ca43793aaeb17e: -80
     f7d8d8f0cf6eb0c499c071d296cbbc22: 0.1
@@ -112,8 +120,11 @@ AudioMixerSnapshotController:
     d924321442644354ea00bc0ef472d123: 1
     5b3782e6fd82cd74d82d6497d5b20545: 0.623
     3b024b3776731564da70d2be2a8327e8: 0.234
+    7f6680b78f2a3db439b3bfe615b82e19: 0
+    1fe704b7162e30e4cb84865cbcf150f7: 1
     e16216783ace82d469430e79c54fb518: 392
     71511f78cafe0284eb555408499988fa: -4121
+    5462d3b8f58b1ed43bd447104592bbc0: 22000
     caf0f37972ac36143b70d2f56dc1f025: 0.5
     185c27abf740c3a479f2614513da0f04: 32
     c533311cb5092b94582f9fb4fd59fc74: -6952
@@ -124,3 +135,21 @@ AudioMixerSnapshotController:
     6987986fa9e07ba4c936989161feec89: 1
     5fbdd1efaa3ae9542adaf3c8ac0c3b09: 1
   m_TransitionOverrides: {}
+--- !u!244 &9107800802855938016
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2f2c1fc8bd0d9224594c71a911808e7a
+  m_EffectName: Lowpass
+  m_MixLevel: 4ed40a0fceb32af4eaf272197f9cbdeb
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 5462d3b8f58b1ed43bd447104592bbc0
+  - m_ParameterName: Resonance
+    m_GUID: 767a66bd99dff1e48b7887f3fd5f4984
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

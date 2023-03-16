@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,15 +38,6 @@ public class PlayerController : MonoBehaviour
 
     //Handles blocking the player from moving while being hurt.
     public bool isTakingDamage = false;
-    
-    //Handles player health and damage effects.
-    public float health = 100;
-    public HealthBarShrink healthBarScript;
-    public SpriteRenderer spriteRenderer;
-    Color originalColor;
-    float Flashtime = .15f;
-    public AudioMixerSnapshot normalAudio;
-    public AudioMixerSnapshot damagedAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +52,6 @@ public class PlayerController : MonoBehaviour
 
         //Used for animations.
         animate = gameObject.GetComponent<Animator>();
-
-        //Used for health and damage.
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
     }
 
     // Update is called once per frame
@@ -159,46 +145,6 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f); 
         Destroy(attackEffect); 
-    }
-
-    void DamageFlashStart()
-    {
-        spriteRenderer.color = Color.red;
-        Invoke("DamageFlashStop", Flashtime);
-        
-    }
-
-    void DamageFlashStop()
-    {
-        spriteRenderer.color = originalColor;
-    }
-
-    public void TakeDamage(int damageAmount) {
-        health -= damageAmount;
-        if (health < 0) {
-            health = 0;
-        }
-        healthBarScript.Damage(damageAmount);
-        StartCoroutine(DamageBuffer());
-    }
-
-    public void Heal(int healAmount) {
-        health += healAmount;
-        if (health > 100) {
-            health = 100;
-        }
-        healthBarScript.Heal(healAmount);
-    }
-
-    IEnumerator DamageBuffer(){ 
-        damagedAudio.TransitionTo(0.1f);
-        DamageFlashStart();
-        isTakingDamage = true;
-        yield return new WaitForSeconds(0.25f); 
-        DamageFlashStart();
-        yield return new WaitForSeconds(0.25f); 
-        isTakingDamage = false;
-        normalAudio.TransitionTo(0.1f);
     }
     
 }

@@ -276,6 +276,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3586914102113747082, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102113747082, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102113747082, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102113747082, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102113747082, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102113747082, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102113747082, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102284193251, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: keyToPress
+      value: 276
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102715239762, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: keyToPress
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914102863442309, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: keyToPress
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586914103122533956, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
+      propertyPath: keyToPress
+      value: 274
+      objectReference: {fileID: 0}
     - target: {fileID: 3586914103520937700, guid: 618db3d52283aa44a86280471d09d2ac, type: 3}
       propertyPath: m_RootOrder
       value: 1

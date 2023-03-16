@@ -29,13 +29,19 @@ public class PlayerController : MonoBehaviour
     public bool grounded = false;
     public bool wallSliding = false;
     public bool isFacingLeft = false;
+
     //Used for displaying an effect when attacking.
-    public GameObject attackParticle;
-    public GameObject attackParticleFlipped;
     public GameObject attackSprite;
 
     //Need to rotate the fire point when looking left
     public GameObject firePoint;
+
+    //Handles blocking the player from moving while being hurt.
+    public bool isTakingDamage = false;
+    
+    //Tracks the player's health.
+    public float health = 100;
+    public HealthBarShrink healthBarScript;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +59,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isTakingDamage) {
+            return;
+        }
 
         //Handle player movement an animations if they're currently moving.
         movement = Input.GetAxis("Horizontal");
@@ -137,6 +147,30 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f); 
         Destroy(attackEffect); 
+    }
+
+    public void TakeDamage(int damageAmount) {
+        health -= damageAmount;
+        if (health < 0) {
+            health = 0;
+        }
+        healthBarScript.Damage(damageAmount);
+        StartCoroutine(DamageBuffer());
+    }
+
+    public void Heal(int healAmount) {
+        health += healAmount;
+        if (health > 100) {
+            health = 100;
+        }
+        healthBarScript.Heal(healAmount);
+    }
+
+    IEnumerator DamageBuffer(){ 
+        
+        isTakingDamage = true;
+        yield return new WaitForSeconds(0.5f); 
+        isTakingDamage = false;
     }
     
 }

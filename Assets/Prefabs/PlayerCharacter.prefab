@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1562845142725334425}
   - component: {fileID: 1562845142725334423}
   - component: {fileID: 1562845142725334424}
+  - component: {fileID: 3627539419866937159}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -155,9 +156,12 @@ MonoBehaviour:
   inFreeFall: 0
   grounded: 0
   wallSliding: 0
-  attackParticle: {fileID: 7502933106982455046, guid: 4b1a96c111592bc4a98804fc0884ed71, type: 3}
-  attackParticleFlipped: {fileID: 1311830962382275849, guid: 0a8163a6d2ff1454aa33c8058b3cae7b, type: 3}
+  isFacingLeft: 0
   attackSprite: {fileID: 6398555948020701994, guid: 54ea340855182cb44879473fafdd8f41, type: 3}
+  firePoint: {fileID: 0}
+  isTakingDamage: 0
+  health: 100
+  healthBarScript: {fileID: 0}
 --- !u!114 &1562845142725334425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +244,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &3627539419866937159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562845142725334431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80819f1132154604a87aa3a91aec3a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1562845142725334427}
 --- !u!1 &1562845142923218160
 GameObject:
   m_ObjectHideFlags: 0

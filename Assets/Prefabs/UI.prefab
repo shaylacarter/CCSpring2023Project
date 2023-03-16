@@ -121,19 +121,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 60000886444132577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 60000887886105394}
-        m_TargetAssemblyTypeName: HealthBarShrink, Assembly-CSharp
-        m_MethodName: Damage
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &60000886652033058
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,19 +730,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 60000887747526376}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 60000887886105394}
-        m_TargetAssemblyTypeName: HealthBarShrink, Assembly-CSharp
-        m_MethodName: Heal
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &60000887836470939
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,8 +766,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.59, y: -8.1}
-  m_SizeDelta: {x: 256.8781, y: 77.1228}
+  m_AnchoredPosition: {x: -6.6594963, y: -8.1}
+  m_SizeDelta: {x: 256.3384, y: 77.1228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &60000887836470942
 CanvasRenderer:
@@ -1106,14 +1082,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.65471697, b: 0.65471697, a: 1}
+  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d5117412f7b02d4f881d502a50f777e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f874c280339e6ae469af9d21088969c4, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

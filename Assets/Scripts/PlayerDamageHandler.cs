@@ -8,6 +8,8 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
 
     public Rigidbody2D rb;
     PlayerController playerController;
+    public GameObject hitParticle;
+    GameObject damageEffect;
 
     //Handles player health and damage effects.
     public float health = 100;
@@ -36,6 +38,8 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
     public void OnHit(int damage, Vector2 knockback) {
         TakeDamage(damage);
         rb.AddRelativeForce(knockback, ForceMode2D.Impulse);
+        damageEffect = Instantiate(hitParticle, transform.position, Quaternion.identity) as GameObject;
+        damageEffect.transform.parent = transform;
     }
 
     public void OnHit(int damage) {
@@ -78,12 +82,15 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
     IEnumerator DamageBuffer(){ 
         damagedAudio.TransitionTo(0.1f);
         DamageFlashStart();
-        playerController.isTakingDamage = true;
+        playerController.isBusy = true;
         yield return new WaitForSeconds(0.25f); 
         DamageFlashStart();
         yield return new WaitForSeconds(0.25f); 
-        playerController.isTakingDamage = false;
+        playerController.isBusy = false;
         normalAudio.TransitionTo(0.1f);
+        if (damageEffect != null) {
+            Destroy(damageEffect);
+        }
     }
 
 }

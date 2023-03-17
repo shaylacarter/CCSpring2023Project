@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     public GameObject firePoint;
 
     //Handles blocking the player from moving while being hurt.
-    public bool isTakingDamage = false;
+    public bool isBusy = false;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (isTakingDamage) {
+        if (isBusy) {
             return;
         }
 

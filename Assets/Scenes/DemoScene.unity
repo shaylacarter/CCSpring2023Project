@@ -25951,6 +25951,10 @@ PrefabInstance:
       value: PlayerCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 3627539419866937159, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
+      propertyPath: hitParticle
+      value: 
+      objectReference: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
+    - target: {fileID: 3627539419866937159, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
       propertyPath: normalAudio
       value: 
       objectReference: {fileID: 24500006, guid: f113064e9ef216641b28dce78864fa64, type: 2}

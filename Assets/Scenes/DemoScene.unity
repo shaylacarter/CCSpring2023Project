@@ -483,7 +483,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visible: 0
   minigameOverlay: {fileID: 343788974}
-  minigamePrefab: {fileID: 129747307816759397, guid: bac497bb76682c14a970e8bd586d3082, type: 3}
 --- !u!1001 &123487803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7080,6 +7079,7 @@ GameObject:
   - component: {fileID: 343788978}
   - component: {fileID: 343788977}
   - component: {fileID: 343788976}
+  - component: {fileID: 343788979}
   m_Layer: 5
   m_Name: MinigameCanvas
   m_TagString: Untagged
@@ -7171,6 +7171,25 @@ Canvas:
   m_SortingLayerID: -334244017
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &343788979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343788974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847bf3bdc104c1345945e4c0e99ca97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeIn: 0
+  fadeOut: 0
+  fadeSpeed: 1
+  alpha: 0
+  openDoor: 0
+  gameManager: {fileID: 3586914102915701195}
+  doorToOpen: {fileID: 179143195}
 --- !u!1 &356139609
 GameObject:
   m_ObjectHideFlags: 0
@@ -10181,7 +10200,7 @@ GameObject:
   - component: {fileID: 771183757}
   - component: {fileID: 771183758}
   m_Layer: 5
-  m_Name: DarkBacking (1)
+  m_Name: MusicNoteBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10195,7 +10214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771183756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19, y: 1.694, z: 1}
+  m_LocalPosition: {x: -19.000042, y: 1.6939896, z: 1.0000085}
   m_LocalScale: {x: 39.253944, y: 43.9987, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32658,7 +32677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961501221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 2, z: 1}
+  m_LocalPosition: {x: -2.9999065, y: 1.9999871, z: 1.0000085}
   m_LocalScale: {x: 70, y: 70, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34494,8 +34513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33592a850f325a41930b76e9c390a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultImage: {fileID: 21300000, guid: 1bbda9210988dfd4db252a09838d254f, type: 3}
-  pressedImage: {fileID: 21300000, guid: cacc39dd2a4e88a43aadeddd73e9b1e2, type: 3}
+  defaultImage: {fileID: 0}
+  pressedImage: {fileID: 0}
   keyToPress: 273
 --- !u!4 &3586914101706807417
 Transform:
@@ -34504,9 +34523,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914101706807419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.17, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.753, y: 0.185, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103520888502}
@@ -34553,15 +34572,15 @@ SpriteRenderer:
   m_SortingLayerID: -334244017
   m_SortingLayer: 14
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1bbda9210988dfd4db252a09838d254f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3586914101706807419
@@ -34672,15 +34691,15 @@ SpriteRenderer:
   m_SortingLayerID: -334244017
   m_SortingLayer: 14
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ad187f74f2d0cc4499f39a0267b9eda8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3586914101844609897
@@ -34762,8 +34781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33592a850f325a41930b76e9c390a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultImage: {fileID: 21300000, guid: ad187f74f2d0cc4499f39a0267b9eda8, type: 3}
-  pressedImage: {fileID: 21300000, guid: 18bf226de2d59284e904c26430f659c9, type: 3}
+  defaultImage: {fileID: 0}
+  pressedImage: {fileID: 0}
   keyToPress: 276
 --- !u!4 &3586914101844609903
 Transform:
@@ -34773,8 +34792,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914101844609897}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4999995, y: 0.17000031, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.7530003, y: 0.16999817, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103520888502}
@@ -34833,8 +34852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33592a850f325a41930b76e9c390a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultImage: {fileID: 21300000, guid: ed2984e24d5df6f46a80ead6ad2964fa, type: 3}
-  pressedImage: {fileID: 21300000, guid: 8f47ff751b3bdec48862adf0100c74fa, type: 3}
+  defaultImage: {fileID: 0}
+  pressedImage: {fileID: 0}
   keyToPress: 274
 --- !u!4 &3586914101997369274
 Transform:
@@ -34844,8 +34863,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914101997369156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5000005, y: 0.17000031, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.6600001, y: 0.18999791, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103520888502}
@@ -34892,15 +34911,15 @@ SpriteRenderer:
   m_SortingLayerID: -334244017
   m_SortingLayer: 14
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ed2984e24d5df6f46a80ead6ad2964fa, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &3586914101997369279
@@ -35011,6 +35030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   cleared: 0
+  fadeOut: 0
+  fadeSpeed: 1
   keyToPress: 276
   hitEffect: {fileID: 8273224375552747955, guid: 93adddb3114758245a0a50d4e6dc79a0, type: 3}
   goodEffect: {fileID: 7909295687798367659, guid: 990ca1e060d9f62419221fa89f2c98f4, type: 3}
@@ -35023,9 +35044,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914102003695717}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.58, y: -1.44, z: -0.1443337}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.82900023, y: -1.4500027, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103380625784}
@@ -35057,8 +35078,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914102113698009}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -91.364044, y: 225, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -91.36392, y: 225, z: 0}
   m_LocalScale: {x: 60, y: 60, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35150,6 +35171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   cleared: 0
+  fadeOut: 0
+  fadeSpeed: 1
   keyToPress: 273
   hitEffect: {fileID: 8273224375552747955, guid: 93adddb3114758245a0a50d4e6dc79a0, type: 3}
   goodEffect: {fileID: 7909295687798367659, guid: 990ca1e060d9f62419221fa89f2c98f4, type: 3}
@@ -35162,9 +35185,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914102476945275}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.38, y: -0.15, z: -0.1443337}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.1400001, y: -0.15999913, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103380625784}
@@ -35213,8 +35236,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914102915701195}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0804918, y: 2.8096266, z: 0.0721649}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.0804923, y: 2.8096275, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914102113698008}
@@ -35248,8 +35271,7 @@ MonoBehaviour:
   goodHits: 0
   perfectHits: 0
   MissedHits: 0
-  minigameManager: {fileID: 94300702}
-  doorToOpen: {fileID: 179143195}
+  canvasController: {fileID: 343788974}
 --- !u!1 &3586914102915701195
 GameObject:
   m_ObjectHideFlags: 0
@@ -35350,6 +35372,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   cleared: 0
+  fadeOut: 0
+  fadeSpeed: 1
   keyToPress: 274
   hitEffect: {fileID: 8273224375552747955, guid: 93adddb3114758245a0a50d4e6dc79a0, type: 3}
   goodEffect: {fileID: 7909295687798367659, guid: 990ca1e060d9f62419221fa89f2c98f4, type: 3}
@@ -35362,9 +35386,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914103014479613}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4, y: 0.92, z: -0.1443337}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.7100008, y: 0.8299985, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103380625784}
@@ -35490,6 +35514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   cleared: 0
+  fadeOut: 0
+  fadeSpeed: 1
   keyToPress: 275
   hitEffect: {fileID: 8273224375552747955, guid: 93adddb3114758245a0a50d4e6dc79a0, type: 3}
   goodEffect: {fileID: 7909295687798367659, guid: 990ca1e060d9f62419221fa89f2c98f4, type: 3}
@@ -35502,9 +35528,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914103036540320}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.42, y: 2.0168705, z: -0.1443337}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 2.6300004, y: 2.0400007, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103380625784}
@@ -35518,8 +35544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914103380625786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8358254, y: 2.6650195, z: 0.07379117}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.8358262, y: 2.6650207, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3586914102003695716}
@@ -35569,8 +35595,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914103520888503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.7542057, y: -1.8470669, z: -0.07054254}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.754207, y: -1.8470674, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3586914101844609903}
@@ -35604,8 +35630,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3586914103687039962}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5000005, y: 0.17000031, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.6100004, y: 0.18999791, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3586914103520888502}
@@ -35652,15 +35678,15 @@ SpriteRenderer:
   m_SortingLayerID: -334244017
   m_SortingLayer: 14
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c3c13b1f8baa5dd4a86d3dc186668178, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3586914103687039962
@@ -35742,6 +35768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33592a850f325a41930b76e9c390a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultImage: {fileID: 21300000, guid: c3c13b1f8baa5dd4a86d3dc186668178, type: 3}
-  pressedImage: {fileID: 21300000, guid: 2d10ec486261df445b73774ff82f1b69, type: 3}
+  defaultImage: {fileID: 0}
+  pressedImage: {fileID: 0}
   keyToPress: 275

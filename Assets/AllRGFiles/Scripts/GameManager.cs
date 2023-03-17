@@ -31,8 +31,7 @@ public class GameManager : MonoBehaviour
     public float perfectHits;
     public float MissedHits;
 
-    public GameObject minigameManager;
-    public GameObject doorToOpen;
+    public GameObject canvasController;
 
     // Start is called before the first frame update
     void Start()
@@ -48,14 +47,13 @@ public class GameManager : MonoBehaviour
     {
         if (!startPlaying)
         {
-            startPlaying = true;
-            theBS.hasStarted = true;
-            theMusic.Play();
+            
         } else if (notesActive == 0) {
             startPlaying = false;
-            minigameManager.GetComponent<MiniGameManager>().ToggleVisibility();
-            if (MissedHits == 0) {
-                doorToOpen.GetComponent<DoorControl>().Remove();
+            if (MissedHits == 0 || true) {  //THIS IS SET TO TRUE FOR NOW UNTIL WE FIGURE OUT HOW WE WANT TO HANDLE FAILURE!
+                canvasController.GetComponent<FadeCanvas>().FadeOut(true);
+            } else {
+                canvasController.GetComponent<FadeCanvas>().FadeOut(false);
             }
         }
     }
@@ -99,6 +97,12 @@ public class GameManager : MonoBehaviour
         currentScore += scorePerPerfectNote * currentMultiplier;
         NoteHit();
         perfectHits++;
+    }
+
+    public void StartPlaying() {
+        startPlaying = true;
+        theBS.hasStarted = true;
+        theMusic.Play();
     }
 
 }

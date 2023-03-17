@@ -7,7 +7,6 @@ public class MiniGameManager : MonoBehaviour
 
     public bool visible = false;
     public GameObject minigameOverlay;
-    public GameObject minigamePrefab;
 
     // Start is called before the first frame update
     void Start()

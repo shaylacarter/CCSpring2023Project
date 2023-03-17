@@ -29,21 +29,21 @@ public class NoteObject : MonoBehaviour
                     GameManager.instance.NoteHit();
                     cleared = true;
                     gameObject.SetActive(false);
-                    Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+                    //Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
                 }
                 else if(Mathf.Abs(transform.position.y) > 0.05f){
                     // Debug.Log("Good");
                     GameManager.instance.GoodHit();
                     cleared = true;
                     gameObject.SetActive(false);
-                    Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
+                    //Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
                 }
                 else{
                     // Debug.Log("Perfect");
                     GameManager.instance.PerfectHit();
                     cleared = true;
                     gameObject.SetActive(false);
-                    Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
+                    //Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
                 }
 
 
@@ -62,7 +62,8 @@ public class NoteObject : MonoBehaviour
             canBePressed = false;
             if(!cleared){
                 GameManager.instance.NoteMissed();
-                Instantiate(missEffect, transform.position, missEffect.transform.rotation);
+                //Instantiate(missEffect, transform.position, missEffect.transform.rotation);
+                gameObject.SetActive(false);
             }
         }
     }

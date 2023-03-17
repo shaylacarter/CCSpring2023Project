@@ -84,3 +84,9 @@ TagManager:
   - name: UI
     uniqueID: 3960723279
     locked: 0
+  - name: Minigame
+    uniqueID: 546299769
+    locked: 0
+  - name: Menu
+    uniqueID: 1358753697
+    locked: 0

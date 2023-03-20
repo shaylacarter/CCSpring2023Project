@@ -9,17 +9,21 @@ public class ItemInteraction : MonoBehaviour
     public TMPro.TMP_Text itemText;
     public string dialog;
     public bool playerInRange;
+
+    public bool cooldownActive;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        cooldownActive = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.E) && playerInRange)
+        if (!cooldownActive && Input.GetKey(KeyCode.E) && playerInRange)
         {
+            StartCoroutine(InteractionCooldown());
             if (itemBox.activeInHierarchy)
             {
                 itemBox.SetActive(false);
@@ -50,5 +54,11 @@ public class ItemInteraction : MonoBehaviour
             playerInRange = false;
             itemBox.SetActive(false);
         }
+    }
+
+    IEnumerator InteractionCooldown(){ 
+        cooldownActive = true;
+        yield return new WaitForSeconds(0.2f); 
+        cooldownActive = false;
     }
 }

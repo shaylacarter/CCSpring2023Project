@@ -8,6 +8,8 @@ public class MeleeCombat : MonoBehaviour
     public float MeleeRange = 0.5f; //Range of melee attack.
     public LayerMask enemyLayers; //Put enemies all in a layer or layers so we can detect them in that layer and smack em.
     public Animator anim;
+    public GameObject hitParticle;
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +28,7 @@ public class MeleeCombat : MonoBehaviour
         //dmg them
         foreach (Collider2D enemy in hitEnemies) {
             Debug.Log("Hit " + enemy.name);
+            GameObject damageEffect = Instantiate(hitParticle, MeleePoint.position, Quaternion.identity) as GameObject;
         }
     }
 

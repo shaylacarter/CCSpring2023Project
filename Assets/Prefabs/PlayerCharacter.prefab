@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &195665029096347084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 195665029096347085}
+  m_Layer: 0
+  m_Name: RangePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &195665029096347085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195665029096347084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0.237, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1562845142725334429}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1562845142725334431
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,9 +48,10 @@ GameObject:
   - component: {fileID: 1562845142725334423}
   - component: {fileID: 1562845142725334424}
   - component: {fileID: 3627539419866937159}
+  - component: {fileID: 8986848534244109419}
   m_Layer: 0
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,6 +75,8 @@ Transform:
   - {fileID: 1562845142923218159}
   - {fileID: 1562845144421743546}
   - {fileID: 1562845144542508666}
+  - {fileID: 195665029096347085}
+  - {fileID: 2654369978187115734}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
@@ -159,12 +193,7 @@ MonoBehaviour:
   isFacingLeft: 0
   attackSprite: {fileID: 6398555948020701994, guid: 54ea340855182cb44879473fafdd8f41, type: 3}
   firePoint: {fileID: 0}
-  isTakingDamage: 0
-  health: 100
-  healthBarScript: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  normalAudio: {fileID: 24500006, guid: f113064e9ef216641b28dce78864fa64, type: 2}
-  damagedAudio: {fileID: -3278525129194621643, guid: f113064e9ef216641b28dce78864fa64, type: 2}
+  isBusy: 0
 --- !u!114 &1562845142725334425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +289,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1562845142725334427}
+  hitParticle: {fileID: 0}
+  health: 100
+  healthBarScript: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  normalAudio: {fileID: 0}
+  damagedAudio: {fileID: 0}
+--- !u!114 &8986848534244109419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562845142725334431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884b349e8641bbe4ba02df6b186b1ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeleePoint: {fileID: 2654369978187115734}
+  MeleeRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  anim: {fileID: 1562845142725334424}
+  hitParticle: {fileID: 0}
 --- !u!1 &1562845142923218160
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,3 +819,34 @@ Transform:
   m_Father: {fileID: 1562845144087672300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -134.14935}
+--- !u!1 &2654369978187115735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2654369978187115734}
+  m_Layer: 0
+  m_Name: MeleePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2654369978187115734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654369978187115735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1562845142725334429}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

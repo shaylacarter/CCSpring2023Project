@@ -10,6 +10,8 @@ public class NoteObject : MonoBehaviour
     public bool fadeOut;
     public float fadeSpeed = 2;
 
+    public AudioSource audioSource;
+
     public KeyCode keyToPress;
 
     public GameObject hitEffect, goodEffect, missEffect, perfectEffect;
@@ -26,6 +28,7 @@ public class NoteObject : MonoBehaviour
             if(canBePressed){
                 // gameObject.SetActive(false);
                 fadeOut = true;
+                audioSource.Play();
 
                 if(Mathf.Abs(transform.position.y) > 0.25){
                     // Debug.Log("Normal");

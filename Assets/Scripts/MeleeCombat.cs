@@ -10,6 +10,12 @@ public class MeleeCombat : MonoBehaviour
     public Animator anim;
     public GameObject hitParticle;
 
+    //Used for playing music as the player attacks.
+    [SerializeField] private AudioClip[] _soundEffects;
+    [SerializeField] private AudioSource _audioSource;
+    private int _currentSoundEffect;
+    public float volume = 1.0f;
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +36,13 @@ public class MeleeCombat : MonoBehaviour
             Debug.Log("Hit " + enemy.name);
             GameObject damageEffect = Instantiate(hitParticle, MeleePoint.position, Quaternion.identity) as GameObject;
         }
+
+        if (hitEnemies.Length > 0 && _soundEffects.Length > 0) {
+            _audioSource.PlayOneShot(_soundEffects[_currentSoundEffect], volume);
+            _currentSoundEffect = (_currentSoundEffect + 1) % _soundEffects.Length;
+        }
+        //Now play the audio effect!
+
     }
 
     void OnDrawGizmosSelected() {

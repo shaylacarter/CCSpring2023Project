@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemInteraction : MonoBehaviour
+public class Item : MonoBehaviour
 {
     public GameObject itemBox;
     public TMPro.TMP_Text itemText;

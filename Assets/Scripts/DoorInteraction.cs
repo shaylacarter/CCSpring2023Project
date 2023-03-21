@@ -7,6 +7,7 @@ public class DoorInteraction : MonoBehaviour
 {
     public GameObject miniGameManager;
     public bool minigameStarted = false;
+    public bool minigameLoaded = false;
     public bool playerInRange;
 
     // Start is called before the first frame update
@@ -22,7 +23,6 @@ public class DoorInteraction : MonoBehaviour
         {
             Debug.Log("Minigame Triggered");
             minigameStarted = true;
-            miniGameManager.GetComponent<MiniGameManager>().ToggleVisibility();
         }
 
     }
@@ -40,6 +40,13 @@ public class DoorInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+        }
+    }
+
+    public void AttemptToStartGame() {
+        if (minigameStarted && !minigameLoaded) {
+            miniGameManager.GetComponent<MiniGameManager>().ToggleVisibility();
+            minigameLoaded = true;
         }
     }
 

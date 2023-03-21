@@ -115,8 +115,8 @@ public class PlayerController : MonoBehaviour
         //Now checks if the player is attacking.
         //This is at the end because it waits and then destroys the attack effect.
         if (Input.GetMouseButtonDown(0)) {
-            animate.SetTrigger("Attack");
-            StartCoroutine(AttackTarget());
+            //animate.SetTrigger("Attack");
+            //StartCoroutine(AttackTarget());
         }
 
     }

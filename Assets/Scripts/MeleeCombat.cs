@@ -10,12 +10,21 @@ public class MeleeCombat : MonoBehaviour
     public Animator anim;
     public GameObject hitParticle;
     public GameObject whiffParticle;
+    public GameObject comboParticle;
+
+    public int comboAttackCounter;
 
     //Used for playing music as the player attacks.
     [SerializeField] private AudioClip[] _soundEffects;
+    [SerializeField] private AudioClip[] _comboSounds;
     [SerializeField] private AudioSource _audioSource;
     private int _currentSoundEffect;
+    private int _currentComboSound;
     public float volume = 1.0f;
+
+    void Start() {
+        comboAttackCounter = 0;
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,21 +38,43 @@ public class MeleeCombat : MonoBehaviour
     void Melee() {
         //play attack animation
         //https://www.youtube.com/watch?v=sPiVz1k-fEs
-        anim.SetTrigger("Attack");
+
+
+        anim.SetTrigger("Attack");  //We always want to trigger the base attack animation.
+
+
         //detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(MeleePoint.position, MeleeRange, enemyLayers);
         //dmg them
         foreach (Collider2D enemy in hitEnemies) {
             Debug.Log("Hit " + enemy.name);
-            GameObject damageEffect = Instantiate(hitParticle, MeleePoint.position, Quaternion.identity) as GameObject;
         }
 
-        //Now play the audio effect!
+        //Now do the on-attack effect!
         if (hitEnemies.Length > 0 && _soundEffects.Length > 0) {
-            _audioSource.PlayOneShot(_soundEffects[_currentSoundEffect], volume);
-            _currentSoundEffect = (_currentSoundEffect + 1) % _soundEffects.Length;
+            //First, figure out if we've gotten a combo hit, or just a normal hit.
+            if (comboAttackCounter >= 3) {
+                //Trigger a combo!
+                Debug.Log("COMBO!!!");
+                Instantiate(comboParticle, MeleePoint.position, Quaternion.identity);
+                Instantiate(hitParticle, MeleePoint.position, Quaternion.identity);
+                _audioSource.PlayOneShot(_comboSounds[_currentComboSound], volume);
+                _currentComboSound = (_currentComboSound + 1) % _comboSounds.Length;
+            } else {
+                Debug.Log("Non-combo hit!");
+                Instantiate(hitParticle, MeleePoint.position, Quaternion.identity);
+                _audioSource.PlayOneShot(_soundEffects[_currentSoundEffect], volume);
+                _currentSoundEffect = (_currentSoundEffect + 1) % _soundEffects.Length;
+            }
+            comboAttackCounter++; //0,1,2 = Normal attack, 3=combo!
         } else if (_soundEffects.Length > 0) {
+            comboAttackCounter = 0; //Reset to 0 on a whiff --> player must make 3 consecutive hits to get a combo.
             StartCoroutine(WhiffEffect());
+        }
+
+        //Now reset the comboAttackCounter if it's surpassed the combo threshold.
+        if (comboAttackCounter >= 4) {
+            comboAttackCounter = 0;
         }
 
     }

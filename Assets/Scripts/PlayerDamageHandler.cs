@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamageHandler : MonoBehaviour, IDamageable
 {
@@ -18,6 +19,11 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
     float Flashtime = .15f;
     public AudioMixerSnapshot normalAudio;
     public AudioMixerSnapshot damagedAudio;
+    public AudioMixerSnapshot deathAudio;
+
+    public bool dying;
+    public GameObject deathParticle;
+    public Vector3 deathPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -25,13 +31,17 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
         playerController = gameObject.GetComponent<PlayerController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        
+        dying = false;
+        deathAudio.TransitionTo(0.0f);
+        normalAudio.TransitionTo(0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Nothing to do here.
+        if (dying) {
+            transform.position = deathPosition;
+        }
     }
 
     public void OnHit(int damage, Vector2 knockback) {
@@ -62,9 +72,16 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
     }
 
     public void TakeDamage(int damageAmount) {
+        if (dying) {
+            return;
+        }
         health -= damageAmount;
-        if (health < 0) {
+        if (health <= 0) {
             health = 0;
+            StopAllCoroutines();
+            StartCoroutine(DeathAnimation());
+            healthBarScript.Damage(damageAmount);
+            return;
         }
         healthBarScript.Damage(damageAmount);
         StartCoroutine(DamageBuffer());
@@ -87,6 +104,18 @@ public class PlayerDamageHandler : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(0.25f); 
         playerController.isBusy = false;
         normalAudio.TransitionTo(0.1f);
+    }
+
+    IEnumerator DeathAnimation(){ 
+        Debug.Log("Kill player!");
+        playerController.isBusy = true;
+        dying = true;
+        deathPosition = transform.position;
+        spriteRenderer.color = new Color(1f, 1f, 1f, 0f);
+        Instantiate(deathParticle, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1.0f);
+        deathAudio.TransitionTo(1.0f);
+        Initiate.Fade(SceneManager.GetActiveScene().name,Color.black,1f);
     }
 
 }

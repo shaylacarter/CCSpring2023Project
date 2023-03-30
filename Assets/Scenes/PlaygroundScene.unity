@@ -1629,6 +1629,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3627539419866937159, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
+      propertyPath: deathAudio
+      value: 
+      objectReference: {fileID: 8259137238607853814, guid: f113064e9ef216641b28dce78864fa64, type: 2}
+    - target: {fileID: 3627539419866937159, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
       propertyPath: hitParticle
       value: 
       objectReference: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
@@ -1640,6 +1644,10 @@ PrefabInstance:
       propertyPath: damagedAudio
       value: 
       objectReference: {fileID: -3278525129194621643, guid: f113064e9ef216641b28dce78864fa64, type: 2}
+    - target: {fileID: 3627539419866937159, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
+      propertyPath: deathParticle
+      value: 
+      objectReference: {fileID: 3293066164622130745, guid: 16da7e03699458b47b22158573f32137, type: 3}
     - target: {fileID: 3627539419866937159, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
       propertyPath: spriteRenderer
       value: 
@@ -1657,6 +1665,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1148634590}
     - target: {fileID: 8986848534244109419, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
+      propertyPath: comboParticle
+      value: 
+      objectReference: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
+    - target: {fileID: 8986848534244109419, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
       propertyPath: whiffParticle
       value: 
       objectReference: {fileID: 6398555948020701994, guid: 54ea340855182cb44879473fafdd8f41, type: 3}
@@ -1665,9 +1677,17 @@ PrefabInstance:
       value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 8986848534244109419, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
+      propertyPath: _comboSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986848534244109419, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
       propertyPath: _soundEffects.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8986848534244109419, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
+      propertyPath: _comboSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ecb317bcc661f064aa319eb98e0f19ea, type: 3}
     - target: {fileID: 8986848534244109419, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
       propertyPath: _soundEffects.Array.data[0]
       value: 

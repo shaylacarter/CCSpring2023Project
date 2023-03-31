@@ -12,8 +12,6 @@ public class MeleeCombat : MonoBehaviour
     public GameObject whiffParticle;
     public GameObject comboParticle;
 
-    public int comboAttackCounter;
-
     //Used for playing music as the player attacks.
     [SerializeField] private AudioClip[] _soundEffects;
     [SerializeField] private AudioClip[] _comboSounds;
@@ -22,8 +20,10 @@ public class MeleeCombat : MonoBehaviour
     private int _currentComboSound;
     public float volume = 1.0f;
 
+    public PlayerManaHandler playerManaHandler;
+
     void Start() {
-        comboAttackCounter = 0;
+        playerManaHandler = GetComponent<PlayerManaHandler>();
     }
 
     // Update is called once per frame
@@ -52,29 +52,12 @@ public class MeleeCombat : MonoBehaviour
 
         //Now do the on-attack effect!
         if (hitEnemies.Length > 0 && _soundEffects.Length > 0) {
-            //First, figure out if we've gotten a combo hit, or just a normal hit.
-            if (comboAttackCounter >= 3) {
-                //Trigger a combo!
-                Debug.Log("COMBO!!!");
-                Instantiate(comboParticle, MeleePoint.position, Quaternion.identity);
-                Instantiate(hitParticle, MeleePoint.position, Quaternion.identity);
-                _audioSource.PlayOneShot(_comboSounds[_currentComboSound], volume);
-                _currentComboSound = (_currentComboSound + 1) % _comboSounds.Length;
-            } else {
-                Debug.Log("Non-combo hit!");
-                Instantiate(hitParticle, MeleePoint.position, Quaternion.identity);
-                _audioSource.PlayOneShot(_soundEffects[_currentSoundEffect], volume);
-                _currentSoundEffect = (_currentSoundEffect + 1) % _soundEffects.Length;
-            }
-            comboAttackCounter++; //0,1,2 = Normal attack, 3=combo!
+            Instantiate(hitParticle, MeleePoint.position, Quaternion.identity);
+            _audioSource.PlayOneShot(_soundEffects[_currentSoundEffect], volume);
+            _currentSoundEffect = (_currentSoundEffect + 1) % _soundEffects.Length;
+            playerManaHandler.AddMana(10);
         } else if (_soundEffects.Length > 0) {
-            comboAttackCounter = 0; //Reset to 0 on a whiff --> player must make 3 consecutive hits to get a combo.
             StartCoroutine(WhiffEffect());
-        }
-
-        //Now reset the comboAttackCounter if it's surpassed the combo threshold.
-        if (comboAttackCounter >= 4) {
-            comboAttackCounter = 0;
         }
 
     }

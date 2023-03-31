@@ -30,6 +30,9 @@ public class NoteObject : MonoBehaviour
                 fadeOut = true;
                 audioSource.Play();
 
+                //Now give the player a little mana boost for their good work!
+                GameObject.FindWithTag("Player").GetComponent<PlayerManaHandler>().AddMana(10);
+
                 if(Mathf.Abs(transform.position.y) > 0.25){
                     // Debug.Log("Normal");
                     GameManager.instance.NoteHit();

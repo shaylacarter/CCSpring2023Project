@@ -10,7 +10,6 @@ public class MeleeCombat : MonoBehaviour
     public Animator anim;
     public GameObject hitParticle;
     public GameObject whiffParticle;
-    public GameObject comboParticle;
 
     //Used for playing music as the player attacks.
     [SerializeField] private AudioClip[] _soundEffects;

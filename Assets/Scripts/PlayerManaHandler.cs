@@ -11,6 +11,8 @@ public class PlayerManaHandler : MonoBehaviour
     public ManaBarShrink manaBarShrink;
     public PlayerDamageHandler playerDamageHandler;
 
+    public GameObject comboParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class PlayerManaHandler : MonoBehaviour
         if (Input.GetKey(KeyCode.Q) && mana == manaCap) {
             Debug.Log("Combo AOE!");
             RemoveMana(manaCap);
+            Instantiate(comboParticle, transform.position, Quaternion.identity);
         }
         if (Input.GetKey(KeyCode.W) && mana >= manaCap/2 && playerDamageHandler.health < 100) {
             Debug.Log("Player heal!");

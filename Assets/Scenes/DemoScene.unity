@@ -13044,9 +13044,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 60000887657224194, guid: 0b77a4fc43b23f74f9976954963dd05b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.9275684
+      objectReference: {fileID: 0}
+    - target: {fileID: 60000887886105405, guid: 0b77a4fc43b23f74f9976954963dd05b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -89
+      objectReference: {fileID: 0}
     - target: {fileID: 60000888369595557, guid: 0b77a4fc43b23f74f9976954963dd05b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 6.827568
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149128047972194458, guid: 0b77a4fc43b23f74f9976954963dd05b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 100.85498
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7737925679091961921, guid: 0b77a4fc43b23f74f9976954963dd05b, type: 3}
@@ -27457,7 +27469,19 @@ MonoBehaviour:
   mana: 0
   manaCap: 0
   manaBarShrink: {fileID: 1012752990}
-  playerDamageHandler: {fileID: 0}
+  playerDamageHandler: {fileID: 1707809556}
+  comboParticle: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 3}
+--- !u!114 &1707809556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3627539419866937159, guid: 1dfca5116f52c564e92be4cf7302fe97, type: 3}
+  m_PrefabInstance: {fileID: 1707809530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830167005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80819f1132154604a87aa3a91aec3a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1729377753
 GameObject:
   m_ObjectHideFlags: 0

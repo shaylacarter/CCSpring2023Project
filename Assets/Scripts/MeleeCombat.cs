@@ -47,6 +47,9 @@ public class MeleeCombat : MonoBehaviour
         //dmg them
         foreach (Collider2D enemy in hitEnemies) {
             Debug.Log("Hit " + enemy.name);
+            Vector2 direction = (enemy.transform.position - transform.position).normalized;
+            Vector2 knockback = direction * 3f;
+            enemy.gameObject.GetComponent<IDamageable>().OnHit(5,knockback);
         }
 
         //Now do the on-attack effect!

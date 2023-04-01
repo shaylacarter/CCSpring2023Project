@@ -293,6 +293,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f7402275f895b4fa30120a666669cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &671618608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1156362296037473497, guid: b6436e77fc0f0f140bf9b0c4a333c791, type: 3}
+  m_PrefabInstance: {fileID: 1156362295450082450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &671618609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671618608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93de5786ecf6d747a7e385c7eb2bfa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  health: 100
+  deathParticle: {fileID: 3293066164622130745, guid: 16da7e03699458b47b22158573f32137, type: 3}
+--- !u!58 &671618610
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671618608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1001 &709773754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -823,6 +859,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mana: 0
   manaCap: 0
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
   manaBarShrink: {fileID: 1808111304}
   playerDamageHandler: {fileID: 1148634579}
   comboParticle: {fileID: 100004, guid: a89abc0d2591545288f4c041059ae633, type: 3}

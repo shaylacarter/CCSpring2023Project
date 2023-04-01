@@ -7,6 +7,7 @@ public class PlayerManaHandler : MonoBehaviour
 
     public int mana;
     public int manaCap;
+    public LayerMask enemyLayers;
 
     public ManaBarShrink manaBarShrink;
     public PlayerDamageHandler playerDamageHandler;
@@ -19,15 +20,23 @@ public class PlayerManaHandler : MonoBehaviour
         mana = 0;
         manaCap = 100;
         playerDamageHandler = GetComponent<PlayerDamageHandler>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.Q) && mana == manaCap) {
-            Debug.Log("Combo AOE!");
             RemoveMana(manaCap);
             Instantiate(comboParticle, transform.position, Quaternion.identity);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, 10, enemyLayers);
+            foreach (Collider2D enemy in hitEnemies) {
+                Debug.Log("COMBO Hit " + enemy.name);
+                Vector2 direction = (enemy.transform.position - transform.position).normalized;
+                Vector2 knockback = direction * 3f;
+                enemy.gameObject.GetComponent<IDamageable>().OnHit(50,knockback);
+            }
+
         }
         if (Input.GetKey(KeyCode.W) && mana >= manaCap/2 && playerDamageHandler.health < 100) {
             Debug.Log("Player heal!");
@@ -51,4 +60,6 @@ public class PlayerManaHandler : MonoBehaviour
         }
         manaBarShrink.Damage(amount);
     }
+
+
 }

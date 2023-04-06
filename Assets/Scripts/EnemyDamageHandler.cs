@@ -50,6 +50,14 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
         if (health <= 0) {
             health = 0;
             Instantiate(deathParticle, transform.position, Quaternion.identity);
+
+            //Handle "saving" the audio. NOTE: Do we want this?
+            // AudioSource audioSource = GetComponentInChildren<AudioSource>();
+            // GameObject player = GameObject.FindWithTag("Player");
+            // if (audioSource != null && player != null) {
+            //     audioSource.gameObject.transform.SetParent(player.transform);
+            // }
+
             Object.Destroy(this.gameObject);
         }
     }

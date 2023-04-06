@@ -11,15 +11,15 @@ public class MeleeCombat : MonoBehaviour
     public GameObject hitParticle;
     public GameObject whiffParticle;
 
-    //Used for playing music as the player attacks.
-    [SerializeField] private AudioClip[] _soundEffects;
-    [SerializeField] private AudioClip[] _comboSounds;
-    [SerializeField] private AudioSource _audioSource;
-    private int _currentSoundEffect;
-    private int _currentComboSound;
-    public float volume = 1.0f;
-
+    //Used for tracking a player's mana.
     public PlayerManaHandler playerManaHandler;
+
+    //Used for calculating if the player is attacking on-beat or off-beat.
+    public float lastBeatTime;
+    public float lastPlayerClickTime;
+    public float nextBeatTime;
+    public AudioSource attackAudioSource;
+    private bool delayBeat;
 
     void Start() {
         playerManaHandler = GetComponent<PlayerManaHandler>();
@@ -42,6 +42,17 @@ public class MeleeCombat : MonoBehaviour
         anim.SetTrigger("Attack");  //We always want to trigger the base attack animation.
 
 
+        //Now check if the player is attacking on or off the beat.
+        bool onBeat = false;
+        lastPlayerClickTime = Time.time;
+        if ((lastPlayerClickTime - lastBeatTime < 0.15) || (nextBeatTime - lastPlayerClickTime < 0.15)) {
+            Debug.Log("Click: On Beat");
+            onBeat = true;
+        } else {
+            Debug.Log("Click: Off Beat");
+        }
+
+
         //detect enemies in range of attack
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(MeleePoint.position, MeleeRange, enemyLayers);
         //dmg them
@@ -53,12 +64,20 @@ public class MeleeCombat : MonoBehaviour
         }
 
         //Now do the on-attack effect!
-        if (hitEnemies.Length > 0 && _soundEffects.Length > 0) {
+        if (hitEnemies.Length > 0 && onBeat) {
+            //Spawn the particle that shows we hit.
             Instantiate(hitParticle, MeleePoint.position, Quaternion.identity);
-            _audioSource.PlayOneShot(_soundEffects[_currentSoundEffect], volume);
-            _currentSoundEffect = (_currentSoundEffect + 1) % _soundEffects.Length;
+
+            //Have the player's song join in until the next beat.
+            attackAudioSource.volume = 1.0f;
+            //If the player clicked just barely before the next beat, then have delaybeat set to true.
+            if (nextBeatTime - lastPlayerClickTime < 0.15) {
+                delayBeat = true;
+            }
+
+            //Update the player's mana.
             playerManaHandler.AddMana(10);
-        } else if (_soundEffects.Length > 0) {
+        } else {
             StartCoroutine(WhiffEffect());
         }
 
@@ -67,6 +86,17 @@ public class MeleeCombat : MonoBehaviour
     void OnDrawGizmosSelected() {
         if (MeleePoint == null) { return; }
         Gizmos.DrawWireSphere(MeleePoint.position, MeleeRange);
+    }
+
+    public void OnBeat() {
+        float currentTime = Time.time;
+        nextBeatTime = currentTime + (currentTime - lastBeatTime);
+        lastBeatTime = currentTime;
+        if (delayBeat) {
+            delayBeat = false;
+        } else {
+            attackAudioSource.volume = 0.0f;
+        }
     }
 
     IEnumerator WhiffEffect(){ 

@@ -47,6 +47,11 @@ public class DoorInteraction : MonoBehaviour
         if (minigameStarted && !minigameLoaded) {
             miniGameManager.GetComponent<MiniGameManager>().ToggleVisibility();
             minigameLoaded = true;
+
+            AudioSource audioSource = GetComponent<AudioSource>();
+            if (audioSource != null) {
+                audioSource.volume = 1.0f;
+            }
         }
     }
 

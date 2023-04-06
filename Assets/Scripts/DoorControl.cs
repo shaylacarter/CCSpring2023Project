@@ -38,4 +38,13 @@ public class DoorControl : MonoBehaviour
         doorCollider.SetActive(false);
         particles.SetActive(false);
     }
+
+    public void AttemptToStopAudio() {
+        if (fadeOut) {
+            AudioSource audioSource = GetComponent<AudioSource>();
+            if (audioSource != null) {
+                audioSource.volume = 0.0f;
+            }
+        }
+    }
 }

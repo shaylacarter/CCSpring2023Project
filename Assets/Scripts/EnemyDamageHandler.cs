@@ -51,12 +51,13 @@ public class EnemyDamageHandler : MonoBehaviour, IDamageable
             health = 0;
             Instantiate(deathParticle, transform.position, Quaternion.identity);
 
-            //Handle "saving" the audio. NOTE: Do we want this?
-            // AudioSource audioSource = GetComponentInChildren<AudioSource>();
-            // GameObject player = GameObject.FindWithTag("Player");
-            // if (audioSource != null && player != null) {
-            //     audioSource.gameObject.transform.SetParent(player.transform);
-            // }
+            //Once we've killed the enemy, make their music quieter and add it to the level background track.
+            AudioSource audioSource = GetComponentInChildren<AudioSource>();
+            GameObject player = GameObject.FindWithTag("Player");
+            if (audioSource != null && player != null) {
+                audioSource.gameObject.transform.SetParent(player.transform);
+                audioSource.volume = (audioSource.volume / 2);
+            }
 
             Object.Destroy(this.gameObject);
         }

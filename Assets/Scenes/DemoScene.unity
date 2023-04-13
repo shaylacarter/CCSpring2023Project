@@ -36486,9 +36486,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2111905552}
     m_Modifications:
+    - target: {fileID: 3286029446381878230, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 845e4c56abea38e4b9aa8a9214598d57, type: 3}
+    - target: {fileID: 3286029446381878231, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 73.231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029446381878231, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 61.215
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029446381878231, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0020726
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029446381878231, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3286029446582839472, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Title
+      value: Scenes/MainMenuScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029446582839478, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0020733
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029446582839478, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45.608
       objectReference: {fileID: 0}
     - target: {fileID: 3286029447013411652, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
       propertyPath: m_RootOrder
@@ -36537,6 +36565,30 @@ PrefabInstance:
     - target: {fileID: 3286029447013411658, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029447971812520, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029447971812520, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029447971812520, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029447971812520, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029447971812521, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0020766
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286029447971812521, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 3286029448141084565, guid: 312f8aa335a49a94b9ae773cb345b1d4, type: 3}
       propertyPath: m_Camera

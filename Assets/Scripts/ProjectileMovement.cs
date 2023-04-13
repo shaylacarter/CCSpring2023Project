@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 100f;
     public Rigidbody2D body;
     public GameObject bullet;
     public PlayerController player;
-    public float bulletRadius = 0.3f; //Range of melee attack.
+    public float bulletRadius = 0.3f; //Range of bullet hitbox.
     public LayerMask enemyLayers; //Put enemies all in a layer or layers so we can detect them in that layer and smack em.
     // Start is called before the first frame update
     void Start()

@@ -21,6 +21,8 @@ public class MeleeCombat : MonoBehaviour
     public AudioSource attackAudioSource;
     private bool delayBeat;
 
+    public float knockBackScale;
+
     void Start() {
         playerManaHandler = GetComponent<PlayerManaHandler>();
     }
@@ -59,7 +61,7 @@ public class MeleeCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies) {
             Debug.Log("Hit " + enemy.name);
             Vector2 direction = (enemy.transform.position - transform.position).normalized;
-            Vector2 knockback = direction * 3f;
+            Vector2 knockback = direction * knockBackScale;
             enemy.gameObject.GetComponent<IDamageable>().OnHit(5,knockback);
         }
 

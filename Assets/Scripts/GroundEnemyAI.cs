@@ -16,6 +16,11 @@ public class GroundEnemyAI : MonoBehaviour
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
         enemyRigidBody.velocity = transform.right * walkingSpeed;
+
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null) {
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+        }
     }
 
     // Update is called once per frame

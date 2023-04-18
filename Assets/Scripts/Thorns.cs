@@ -31,4 +31,15 @@ public class Thorns : MonoBehaviour
             damageable.OnHit(damage, knockback);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        IDamageable damageable = collider.GetComponent<IDamageable>();
+
+        if (damageable != null) {
+            Vector2 direction = (collider.transform.position - transform.position).normalized;
+            Vector2 knockback = direction * knockbackForce;
+            damageable.OnHit(damage, knockback);
+        }
+    }
 }

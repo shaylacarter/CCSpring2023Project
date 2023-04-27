@@ -872,7 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadToColor: {r: 0, g: 0, b: 0, a: 1}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1676252885}
 --- !u!1 &389521908
 GameObject:
   m_ObjectHideFlags: 0

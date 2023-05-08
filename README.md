@@ -13,7 +13,7 @@ How to run Unity application: click the executable file `CCSpring2023Project.exe
 **Additional Credits:**  
 *The following provides a list of additional game assets and code we used and/or referenced during development.*  
 - Travis Game Assets (Unity Asset Store): [Particle effects](https://assetstore.unity.com/packages/vfx/particles/hit-impact-effects-free-218385) that play on a successful attack or when taking damage
-- Negleft: [Scene transition fade](https://assetstore.unity.com/packages/tools/particles-effects/simple-fade-scene-transition-system-81753) code
+- Negleft (Unity Asset Store): [Scene transition fade](https://assetstore.unity.com/packages/tools/particles-effects/simple-fade-scene-transition-system-81753) code
 - Andrii (Unity Asset Store): [Light rays VFX](https://assetstore.unity.com/packages/vfx/shaders/lightrays-2d-effect-103506)
 - Kakky (Unity Asset Store): [Particle effect](https://assetstore.unity.com/packages/vfx/particles/spells/ky-magic-effects-free-21927) that plays when performing the area of effect damage ability
 - ChronoABI (YouTube): [Grounded](https://www.youtube.com/watch?v=ovg5HNrZK0o) and [flying enemy](https://www.youtube.com/watch?v=lHLZxd0O6XY) code
